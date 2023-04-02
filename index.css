@@ -47,3 +47,12 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+.filter-btn {
+    margin: 20px 0;
+    background: #FF5722;
+    color: white;
+    width: 126px;
+    cursor: pointer;
+    border-radius: 6px;
+}

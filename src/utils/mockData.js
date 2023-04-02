@@ -1,50 +1,4 @@
-import React from "react";
-import  ReactDOM  from "react-dom/client";
-
-
-const Header = () => {
-    return (
-        <div className="header">
-           <div className="logo"> 
-                <img width="100px" src="https://img.freepik.com/premium-vector/online-food-app-icon-food-shop-location-logo-also-online-resturent-location-template_608547-155.jpg?w=2000"/>
-            </div> 
-            <div className="nav-items">
-                <ul>
-                    <li>Home</li>
-                    <li>About us</li>
-                    <li>Contact us</li>
-                    <li>Cart</li>
-                </ul>
-            </div>
-        </div>
-    )
-}
-
-const RestroCard = (props) => {
-const {resData} = props;
-
-const {cloudinaryImageId,name,cuisines,avgRating,costForTwo,deliveryTime} = resData?.data
-    return (
-        <div className="restro-card">
-            <div className="restro-card-inner">
-                <div className="restro-img">
-                    <img     width = "254px" height= "160px" 
-                    src={"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/" + cloudinaryImageId}/>
-                </div>
-                <div className="restro-detail">
-                    <h3>{name}</h3>
-                    <h4>{cuisines.join(",")}</h4>
-                    <h4>{avgRating}</h4>
-                    <h4>{costForTwo/100} rs for two</h4>
-                    <h4>{deliveryTime}</h4>
-                </div>
-            
-            </div>
-        </div>
-    )
-}
-
-const resObj = [
+const REST_OBJ = [
     {
         "type": "restaurant",
         "data": {
@@ -384,25 +338,4 @@ const resObj = [
         }
 ]
 
-const Body = () => {
-    return (
-        <div className="body"> 
-            <div className="searchBar">Search</div>
-            <div className="restContainer">
-                { resObj.map(restaurant => <RestroCard key={restaurant.data.id} resData = {restaurant}/>) } 
-            </div>
-        </div>
-    )
-}
-
-const AppLayout = () =>{
-    return (
-    <div  className="app">
-        <Header/>
-        <Body/>
-    </div>
-    )
-}
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<AppLayout/>);
+export default REST_OBJ
